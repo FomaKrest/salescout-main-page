@@ -1508,13 +1508,13 @@ body {
   color: #036AF5; 
   font-size: 26px; 
   font-weight: 700;
-  margin-bottom: 5px;
 }
 
 .video-reviews__center-horizontal {
   display: flex; 
   justify-content: space-between; 
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .video-reviews__bottom-gray-text {
