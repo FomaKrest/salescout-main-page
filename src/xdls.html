@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XDLS</title>
+  </head>
+  <body>
+    <script type="text/javascript" defer>
+      window.addEventListener(
+        "message",
+        function (event) {
+          if (event.origin !== "https://app.salescout.me") {
+            return;
+          }
+          try {
+            const data = JSON.parse(event.data);
+
+            if (data.label === "xdls:setItem") {
+              const key = data.data.key;
+              const value = data.data.value;
+
+              localStorage.setItem(key, value);
+            } else if (data.label === "xdls:getItem") {
+              const key = data.data.key;
+              const value = localStorage.getItem(key);
+
+              console.log(data)
+
+              window.parent.postMessage(
+                JSON.stringify({
+                  id: data.id,
+                  data: {
+                    key,
+                    value,
+                  },
+                  label: "xdls:getItem",
+                }),
+                event.origin
+              );
+            }
+          } catch (e) {
+            console.log(e);
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

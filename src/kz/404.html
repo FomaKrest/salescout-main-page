@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#3f2ca0" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>404 - Парақша табылмады</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__container container">
+          <div class="header__body">
+            <a href="#" class="header__logo"> SaleScout </a>
+            <div id="header__burger" class="header__burger"><span></span></div>
+            <nav id="header__menu" class="header__menu">
+              <ul class="header__list">
+                <li class="header__item">
+                  <a href="/kz/" class="header__link">Басты бет</a>
+                </li>
+                <li class="header__item">
+                  <a href="/kz/analytics" class="header__link">Аналитика</a>
+                </li>
+                <li class="header__item">
+                  <a href="/kz/turbo-analytics" class="header__link"
+                    >Turbo Аналитика</a
+                  >
+                </li>
+                <li class="header__item">
+                  <a href="/kz/course" class="header__link">Kaspi курсы</a>
+                </li>
+                <li class="header__item">
+                  <a href="https://wtsp.cc/77089623410" class="header__link"
+                    >Консультация</a
+                  >
+                </li>
+                <li class="header__item">
+                  <button
+                  id="language__button"
+                    class="header__button button-border button-square"
+                    >Рус</button
+                  >
+                </li>
+                <li class="header__item">
+                  <a
+                    href="https://app.salescout.me/api/auth/login"
+                    class="header__button button button-square"
+                    >Кіру</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <section class="error__page error">
+          <div class="error__container container">
+            <div class="error__body">
+              <p class="error__title">404</p>
+              <h1 class="main-product__title">Ондай бет жоқ</h1>
+              <div class="text">Бірақ басқа да көптеген пайдалы парақшалар бар</div>
+              <ul class="error__menu">
+                <li class="error__item">
+                  <a href="/kz/" class="error__link">Главная</a>
+                </li>
+                <li class="error__item">
+                  <a href="/kz/analytics" class="error__link">Аналитика</a>
+                </li>
+                <li class="error__item">
+                  <a href="/kz/turbo-analytics" class="error__link"
+                    >Turbo Аналитика</a
+                  >
+                </li>
+                <li class="error__item">
+                  <a href="/kz/course" class="error__link">Kaspi курсы</a>
+                </li>
+                <li class="error__item">
+                  <a href="https://wtsp.cc/77089623410" class="error__link"
+                    >Консультация</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__container container">
+          <div class="footer__body">
+            <a href="/kz/" class="footer__logo"> © SaleScout 2023 </a>
+            <ul class="footer__menu">
+              <li class="footer__item">
+                <a href="/kz/legal" class="footer__link">
+                  Пайдаланушы келісімі
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./script.js"></script>
+    <script>
+      var button = document.getElementById("language__button");
+      button.addEventListener("click", function () {
+        localStorage.setItem("LOCAL_LANGUAGE", "ru");
+        window.location.href = "/ru/error-page";
+      });
+    </script>
+  </body>
+</html>

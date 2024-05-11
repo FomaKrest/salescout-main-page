@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#3f2ca0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="keywords"
+      content="каспи бот, бот для каспи, бот для каспи магазина, бот для каспи магазина, kaspi бот"
+    />
+    <meta
+      name="description"
+      content="Бүгіннен бастап бағаны автоматты түрде төмендететін бот арқылы
+      сатылымдарыңызды 2-5 есе арттырыңыз"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>SaleScout.me - ең тез және қауіпсіз Kaspi боты</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-9JW7M1CYJW"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-9JW7M1CYJW");
+  </script>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__container container">
+          <div class="header__body">
+            <a href="#" class="header__logo"> SaleScout </a>
+            <div id="header__burger" class="header__burger"><span></span></div>
+            <nav id="header__menu" class="header__menu">
+              <ul class="header__list">
+                <li class="header__item">
+                  <a href="/kz/" class="header__link active">Басты бет</a>
+                </li>
+                <li class="header__item">
+                  <a href="/kz/analytics" class="header__link">Аналитика</a>
+                </li>
+                <li class="header__item">
+                  <a href="/kz/turbo-analytics" class="header__link"
+                    >Turbo Аналитика</a
+                  >
+                </li>
+                <li class="header__item">
+                  <a href="/kz/course" class="header__link">Kaspi курсы</a>
+                </li>
+                <li class="header__item">
+                  <a href="https://wtsp.cc/77089623410" class="header__link"
+                    >Консультация</a
+                  >
+                </li>
+                <li class="header__item">
+                  <button
+                  id="language__button"
+                    class="header__button button-border button-square"
+                    >Рус</button
+                  >
+                </li>
+                <li class="header__item">
+                  <a
+                    href="https://app.salescout.me/api/auth/login"
+                    class="header__button button button-square"
+                    >Кіру</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <section class="main-product__page main-product">
+          <div class="main-product__container container">
+            <div class="main-product__body">
+              <div class="main-product__text">
+                <h1 class="main-product__title">Kaspi Bot: бизнесіңізді оңтайландырыңыз</h1>
+                <p class="main-product__subtitle">
+                  Бүгіннен бастап бағаны автоматты түрде төмендететін бот арқылы
+                  сатылымдарыңызды 2-5 есе арттырыңыз
+                </p>
+                <a
+                  href="https://app.salescout.me/api/auth/login"
+                  class="main-product__button button button-square"
+                  >Тегін қосылу</a
+                >
+              </div>
+              <img
+                src="/public/imgs/autoprice-main__iphone.png"
+                alt="пример работы kaspi бота"
+                class="main-autoprice__img"
+              />
+            </div>
+          </div>
+        </section>
+        <section id="store-position-chart" style="display: none">
+          <div class="container">
+            <h2 class="h2" id="store-position-title"></h2>
+            <div
+              style="display: flex; justify-content: center; margin-top: 15px"
+            >
+              <i>* Деректер әр 10 минут сайын жаңартылады</i>
+            </div>
+            <canvas id="myChart"></canvas>
+          </div>
+        </section>
+        <section class="page__services services">
+          <div class="services__container container">
+            <div class="services__body">
+              <h2 class="h2">Бұл қалай жұмыс жасайды?</h2>
+              <ul class="services__menu">
+                <li class="services__item">
+                  <img
+                    class="services__icon"
+                    src="/public/icons/search.svg"
+                    alt="иконка поиска"
+                  />
+                  <h3 class="h3">Бағалар мен өнімдерді тексеру</h3>
+                  <p class="text">
+                    Бот Kaspi-ге 3 минут сайын кіріп, әрбір өніміңізді
+                    тексереді.
+                  </p>
+                </li>
+                <li class="services__item">
+                  <img
+                    class="services__icon"
+                    src="/public/icons/rating.svg"
+                    alt="иконка рейтинга"
+                  />
+                  <h3 class="h3">Бірінші орынға шығару</h3>
+                  <p class="text">
+                    Егер сіздің дүкен сатушылар тізімінде бірінші болмаса, онда
+                    бот сіздің ең төменгі бағаңызды қарайды және мүмкін болса,
+                    Kaspi-дегі бағаны төмендетеді.
+                  </p>
+                  <p class="text">
+                    Kaspi жаңа бағаны енгізгеннен кейін сіз сатушылар арасында
+                    бірінші боласыз.
+                  </p>
+                </li>
+                <li class="services__item">
+                  <img
+                    class="services__icon"
+                    src="/public/icons/autoload__money.svg"
+                    alt="иконка автообновление цен"
+                  />
+                  <h3 class="h3">Бағаны автоматты түрде жаңарту</h3>
+                  <p class="text">
+                    Егер сіздің бәсекелестеріңіз бағаны көтерсе, бот автоматты
+                    түрде бағаны көтеріп, маржаны көбейте отыра сізді бірінші
+                    орында қалдырады.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="page__steps steps">
+          <div class="steps__container container">
+            <div class="steps__body">
+              <h2 class="h2">Қалай бастау керек?</h2>
+              <div class="steps__body-menu">
+                <div class="steps__line"></div>
+                <ol class="steps__menu">
+                  <li class="steps__item">
+                    <img
+                      class="steps__item-icon"
+                      src="/public/icons/registratin.png"
+                      alt="иконка регистрации"
+                    />
+                    <div class="steps__item-body">
+                      <h3 class="h3">Веб-сайтта тіркеліңіз</h3>
+                      <p class="text">
+                        Тіркелу үшін сізге WhatsApp арқылы жіберген кодты
+                        енгізіңіз.
+                      </p>
+                      <p class="text text-gray">1 мин. уақыт алады</p>
+                    </div>
+                  </li>
+                  <li class="steps__item">
+                    <img
+                      class="steps__item-icon"
+                      src="/public/icons/cart.png"
+                      alt="иконка карт"
+                    />
+                    <div class="steps__item-body">
+                      <h3 class="h3">Дүкеніңізді қосыңыз</h3>
+                      <p class="text">
+                        Дүкенді қосқаннан кейін өнімдеріңіз SaleScout арқылы
+                        автоматты түрде синхрондалады
+                      </p>
+                      <p class="text text-gray">5 мин. уақыт алады.</p>
+                    </div>
+                  </li>
+                  <li class="steps__item">
+                    <img
+                      class="steps__item-icon"
+                      src="/public/icons/money.png"
+                      alt="иконка денег"
+                    />
+                    <div class="steps__item-body">
+                      <h3 class="h3">Минималды баға</h3>
+                      <p class="text">
+                        Өте төмен бағамен сатылмауы үшін өнімдеріңізге минималды
+                        бағаларды орнатыңыз, одан төмен бот бағаны төмендетпейді
+                      </p>
+                      <p class="text text-gray">3 мин. уақыт алады.</p>
+                    </div>
+                  </li>
+                  <li class="steps__item">
+                    <img
+                      class="steps__item-icon"
+                      src="/public/icons/autoload__money.png"
+                      alt="иконка автообновление цен"
+                    />
+                    <div class="steps__item-body">
+                      <h3 class="h3">Бағаны автоматты түрде төмендету</h3>
+                      <p class="text">
+                        Өнімдеріңізге автоматты түрде бағаны төмендетуді
+                        қосқаннан кейін, SaleScout әр 3 минут сайын
+                        позицияларыңызды талдай бастайды және бірінші орын алу
+                        үшін бағаларды төмендетеді.
+                      </p>
+                      <p class="text text-gray">1 мин. уақыт алады</p>
+                    </div>
+                  </li>
+                  <li class="steps__item">
+                    <img
+                      class="steps__item-icon"
+                      src="/public/icons/rating.png"
+                      alt="иконка рейтинга"
+                    />
+                    <div class="steps__item-body">
+                      <h3 class="h3">Табысыңызды көбейтіңіз</h3>
+                      <p class="text">
+                        SaleScout сіздің дүкеніңізді сатушылар арасында бірінші
+                        орынға қояды және сіз 2-5 есе көп сатылымды ала
+                        бастайсыз.
+                      </p>
+                      <p class="text text-gray">Әрқашан жұмыс істейді</p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="page__about about">
+          <div class="about__container container">
+            <div class="about__body">
+              <h2 class="h2">SaleScout не істей алады?</h2>
+              <p class="text">
+                Әр функциясы сізге көбірек ақша табуға көмектеседі
+              </p>
+              <ul class="about__menu">
+                <li class="about__item">
+                  <img
+                    src="/public/icons/autoload__money.png"
+                    class="about__icon"
+                    alt="иконка автообновление цен"
+                  />
+                  <p class="about__title">
+                    Сатып алу бағасын енгізіп, пайдаңыздың есептеуін жылдам
+                    алыңыз
+                  </p>
+                </li>
+                <li class="about__item">
+                  <img
+                    src="/public/icons/autoload__money.png"
+                    class="about__icon"
+                    alt="иконка автообновление цен"
+                  />
+                  <p class="about__title">Өнімдерді күйі бойынша реттеу</p>
+                </li>
+                <li class="about__item">
+                  <img
+                    src="/public/icons/autoload__money.png"
+                    class="about__icon"
+                    alt="иконка автообновление цен"
+                  />
+                  <p class="about__title">
+                    Жеке өнімдер үшін бағаны автоматты жаңартуды қосыңыз немесе
+                    өшіріңіз
+                  </p>
+                </li>
+                <li class="about__item">
+                  <img
+                    src="/public/icons/rating.png"
+                    class="about__icon"
+                    alt="иконка рейтинга"
+                  />
+                  <p class="about__title">
+                    SaleScout бағаны өте төмен түсірмес үшін, өнімдеріңізге минималды баға қойып шығыңыз
+                  </p>
+                </li>
+                <li class="about__item">
+                  <img
+                    src="/public/icons/mobile.png"
+                    class="about__icon"
+                    alt="иконка мобильника"
+                  />
+                  <p class="about__title">Ыңғайлы басқару</p>
+                </li>
+                <li class="about__item">
+                  <img
+                    src="/public/icons/kaspi.png"
+                    class="about__icon"
+                    alt="иконка адаптивности"
+                  />
+                  <p class="about__title">
+                    Kaspi комиссиясы мен қалааралық жеткізуді ескереміз
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="page__cases cases">
+          <div class="cases__container container">
+            <div class="cases__body">
+              <h2 class="h2">Пайдаланушыларымыздың нәтижелері</h2>
+              <p class="cases__subtitle">
+                Соңғы 24 сағат ішінде біздің пайдаланушылар
+                <span id="orders__total__price">300 000 000</span>
+                теңгеге
+                <span id="orders__count">8 000</span>
+                тапсырыс алды.
+              </p>
+              <ul class="cases__menu">
+                <li class="cases__item">
+                  <div class="cases__text">
+                    <h3 class="h3">Кейс №1</h3>
+                    <div class="cases__item-before">
+                      <p class="text text-gray">Бізге дейін / 58 тапсырыс</p>
+                    </div>
+                    <div class="cases__line-before case__2"></div>
+                    <div class="cases__item-after">
+                      <p class="text">Бізден кейін / 115 тапсырыс</p>
+                    </div>
+                    <div class="cases__line-after cases__line-after__1"></div>
+                  </div>
+                  <p class="cases__percent">1.9x</p>
+                </li>
+                <li class="cases__item">
+                  <div class="cases__text">
+                    <h3 class="h3">Кейс №2</h3>
+                    <div class="cases__item-before">
+                      <p class="text text-gray">Бізге дейін / 46 тапсырыс</p>
+                    </div>
+                    <div class="cases__line-before case__2"></div>
+                    <div class="cases__item-after">
+                      <p class="text">Бізден кейін / 186 тапсырыс</p>
+                    </div>
+                    <div class="cases__line-after cases__line-after__2"></div>
+                  </div>
+                  <p class="cases__percent">4.0x</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="page__disadvantages disadvantages">
+          <div class="disadvantages__container container">
+            <div class="disadvantages__body">
+              <h2 class="h2">Неліктен сатылымыңыз аз?</h2>
+              <ul class="disadvantages__menu">
+                <li class="disadvantages__item">
+                  <div class="disadvantages__item-title">
+                    <img
+                      src="/public/icons/cup-red.svg"
+                      alt="иконка кубка"
+                      class="dd_icon"
+                    />
+                    <h3 class="disadvantages__h3">Бірінші емес</h3>
+                  </div>
+                  <p class="text">
+                    Маркетплейстерде тұтынушылар 90% жағдайда сатушылар
+                    тізімінде бірінші болып тұрған сатушыдан сатып алады.
+                  </p>
+                  <p class="text">Сатушылар бағасы бойынша сұрыпталады.</p>
+                </li>
+                <li class="disadvantages__item">
+                  <div class="disadvantages__item-title">
+                    <img
+                      src="/public/icons/clock-red.svg"
+                      alt="иконка часов"
+                      class="dd_icon"
+                    />
+                    <h3 class="disadvantages__h3">Уақыт</h3>
+                  </div>
+                  <p class="text">
+                    100 өнімді 2 сағатта қолмен жаңартуға болады.
+                  </p>
+                  <p class="text">
+                    Өнімдер тізімінің соңына жеткенше, сіздің бәсекелестеріңіз
+                    тізіміңіздің басында тұрған өнімдердің бағасын өзгертіп
+                    қойған және барлық тапсырыстарды алып жатыр.
+                  </p>
+                </li>
+                <li class="disadvantages__item">
+                  <div class="disadvantages__item-title">
+                    <img
+                      src="/public/icons/user-red.svg"
+                      alt="иконка пользователь"
+                      class="dd_icon"
+                    />
+                    <h3 class="disadvantages__h3">Адам</h3>
+                  </div>
+                  <p class="text">
+                    Демалу, тамақтану, ұйықтау, алаңдау, көңіл-күйдің болмауы,
+                    т.б. адамға тән қасиет
+                  </p>
+                  <p class="text">
+                    Сіз шынымен бизнесіңіздің адамдарға тәуелді болғанын
+                    қалайсыз ба?
+                  </p>
+                </li>
+                <li class="disadvantages__item">
+                  <div class="disadvantages__item-title">
+                    <img
+                      src="/public/icons/sunset-red.svg"
+                      alt="иконка закат"
+                      class="dd_icon"
+                    />
+                    <h3 class="disadvantages__h3">Түн</h3>
+                  </div>
+                  <p class="text">
+                    Адамдар кешке жұмыстан кейін сатып алады. Бұл уақытта сіз
+                    өзіңіздің жеке істеріңізбен де айналысасыз, сондықтан
+                    бағаңызды төмендетпеңіз және бәсекелестер арасында бірінші
+                    болмаңыз.
+                  </p>
+                  <p class="text">Сіз тұтынушыларды жоғалтасыз.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="page__advantages advantages">
+          <div class="advantages__container container">
+            <div class="advantages__body">
+              <h2 class="h2">Тапсырыстар есебін 2 есеге ұлғайту үшін</h2>
+              <ul class="advantages__menu">
+                <li class="advantages__item">
+                  <div class="advantages__item-title">
+                    <img
+                      src="/public/icons/Group_3.svg"
+                      alt="иконка кубка"
+                      class="dd_icon"
+                    />
+                    <h3 class="advantages__h3">Әрқашан бірінші</h3>
+                  </div>
+                  <p class="text">
+                    SaleScout әр 3 минут сайын өнімдеріңізді талдап,
+                    бәсекелестегі өнімнің бағасын 1 теңгеге төмендетеді. Қолайлы
+                    минималды бағадан төмен түспейміз.
+                  </p>
+                  <p class="text">Шығынсыз.</p>
+                </li>
+                <li class="advantages__item">
+                  <div class="advantages__item-title">
+                    <img
+                      src="/public/icons/Group_3.svg"
+                      alt="иконка ночи"
+                      class="dd_icon"
+                    />
+                    <h3 class="advantages__h3">Ұйықтамаймыз</h3>
+                  </div>
+                  <p class="text">
+                    SaleScout ешқашан ұйықтамайды, сондықтан түнде де ол сіздің
+                    өнімдеріңізді талдап, сізді 1-ші орынға қояды.
+                  </p>
+                  <p class="text">
+                    Тіпті түнде де тұтынушыларды өткізіп алмайсыз.
+                  </p>
+                </li>
+                <li class="advantages__item">
+                  <div class="advantages__item-title">
+                    <img
+                      src="/public/icons/Group_5.svg"
+                      alt="иконка корзины"
+                      class="dd_icon"
+                    />
+                    <h3 class="advantages__h3">Бірнеше дүкен</h3>
+                  </div>
+                  <p class="text">
+                    Енді сіз барлық дүкендердегі өнімдерді бір терезеде басқара
+                    аласыз.
+                  </p>
+                  <p class="text">
+                    Бұл өте ыңғайлы және көп уақытты үнемдейді.
+                  </p>
+                </li>
+                <li class="advantages__item">
+                  <div class="advantages__item-title">
+                    <img
+                      src="/public/icons/Group_211.svg"
+                      alt="иконка конкуренты"
+                      class="dd_icon"
+                    />
+                    <h3 class="advantages__h3">Бәсекелестер</h3>
+                  </div>
+                  <p class="text">
+                    Сіз өзіңіздің бәсекелестеріңіздің бағасын қалай төмендетіп
+                    жатқанын көре аласыз.
+                  </p>
+                  <p class="text">Ыңғайлы. Қызықты.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="page__tariff tariff">
+          <div class="tariff__container container">
+            <div class="tariff__body">
+              <h2 class="h2">Дүкеніңізге қандай *тариф сәйкес келеді?</h2>
+              <ul class="tariff__buttons-menu">
+                <li class="tariff__button-item">
+                  <button
+                    onclick="activateButton(1)"
+                    class="tariff__button-term tariff__button-term__active"
+                  >
+                    1 айға
+                  </button>
+                </li>
+                <li class="tariff__button-item">
+                  <button
+                    onclick="activateButton(2)"
+                    class="tariff__button-term"
+                  >
+                    6 айға
+                  </button>
+                </li>
+                <li class="tariff__button-item">
+                  <button
+                    onclick="activateButton(3)"
+                    class="tariff__button-term"
+                  >
+                    1 жылға
+                  </button>
+                </li>
+              </ul>
+              <ul class="tariff__menu">
+                <li class="tariff__item">
+                  <h3 class="h3">Мини</h3>
+                  <p class="text__light">Тестілеуге жарамды</p>
+                  <p id="tariff__mini" class="tariff__price">35 000 ₸/ай</p>
+                  <p class="tariff__capacity">50 өнімге дейін</p>
+                  <a
+                    href="https://app.salescout.me/api/auth/login"
+                    class="tariff__button button button-circle"
+                  >
+                    Қосылу
+                  </a>
+                </li>
+                <li class="tariff__item">
+                  <h3 class="h3">Стандарт</h3>
+                  <p class="text__light">Үйреніп алғандар үшін</p>
+                  <p id="tariff__standart" class="tariff__price">50 000 ₸/ай</p>
+                  <p class="tariff__capacity">500 өнімге дейін</p>
+                  <a
+                    href="https://app.salescout.me/api/auth/login"
+                    class="tariff__button button button-circle"
+                  >
+                    Қосылу
+                  </a>
+                </li>
+                <li class="tariff__item">
+                  <div class="tariff__popular__icon__container">
+                    <img
+                      class="tariff__popular__icon"
+                      src="/public/imgs/popular.png"
+                      alt="иконка популярность"
+                    />
+                  </div>
+                  <h3 class="h3">Бизнес</h3>
+                  <p class="text__light">Тәжірибелі кәсіпкерлер үшін</p>
+                  <p id="tariff__business" class="tariff__price">80 000 ₸/ай</p>
+                  <p class="tariff__capacity">800 өнімге дейін</p>
+                  <a
+                    href="https://app.salescout.me/api/auth/login"
+                    class="tariff__button button button-circle"
+                  >
+                    Қосылу
+                  </a>
+                </li>
+                <li class="tariff__item">
+                  <h3 class="h3">PRO</h3>
+                  <p class="text__light">Үлкен дүкендер үшін</p>
+                  <p id="tariff__pro" class="tariff__price">100 000 ₸/ай</p>
+                  <p class="tariff__capacity">1300 өнімге дейін</p>
+                  <a
+                    href="https://app.salescout.me/api/auth/login"
+                    class="tariff__button button button-circle button-green"
+                  >
+                    Қосылу
+                  </a>
+                </li>
+              </ul>
+              <h3>*Барлық тарифтерге кіреді</h3>
+              <ul class="tariff__desc-menu">
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Манималды баға</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Максималды баға</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Өнімдеріңізді архивталудан қорғау</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">1-5 орын үшін күрес</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Сатылымнан алып тастау</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Сатылымға шығарыңыз</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Қазақстанның барлық қалалары</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Өнімдер фильтрі</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Қалдықтарды синхрондау</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">
+                    Тапсырысты автоматты түрде қабылдау
+                  </p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Дүкендермен бәсекелеспеу</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">1С-пен интеграция</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">тапсырыстар бойынша API</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Қоймалармен жұмыс</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">24/7 техникалық қолдау</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">
+                    Алдын ала тапсырыстармен жұмыс
+                  </p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Премиалды серверлер</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Арнайы инфрақұрылым</p>
+                </li>
+                <li class="tariff__desc-item">
+                  <p class="tariff__desc-text">Дүкен аналитикасы</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="page__review review">
+          <div class="review__container container">
+            <div class="review__body">
+              <h2 class="h2">Пайдаланушыларымыздың пікірлері</h2>
+              <ul class="review__menu">
+                <li class="review__items">
+                  <img
+                    src="/public/icons/Group_user.svg"
+                    class="review__icon"
+                    alt="иконка отзывов"
+                  />
+                  <div class="review__item">
+                    <h3 class="h3">Денис</h3>
+                    <p class="review__text">
+                      Наверное будет лучшим отзывом )) Благодаря вам, я купил
+                      себе машину! 😅✊🏻✊🏻
+                    </p>
+                  </div>
+                </li>
+                <li class="review__items">
+                  <img
+                    src="/public/icons/Group_user.svg"
+                    class="review__icon"
+                    alt="иконка отзывов"
+                  />
+                  <div class="review__item">
+                    <h3 class="h3">Сергей</h3>
+                    <p class="review__text">
+                      Магазин второй открываю. Жду как открою сразу же вам
+                      напишу
+                    </p>
+                  </div>
+                </li>
+                <li class="review__items">
+                  <img
+                    src="/public/icons/Group_user.svg"
+                    class="review__icon"
+                    alt="иконка отзывов"
+                  />
+                  <div class="review__item">
+                    <h3 class="h3">Амиржан</h3>
+                    <p class="review__text">
+                      Всё замечательно, никаких нарекании нету
+                    </p>
+                  </div>
+                </li>
+                <li class="review__items">
+                  <img
+                    src="/public/icons/Group_user.svg"
+                    class="review__icon"
+                    alt="иконка отзывов"
+                  />
+                  <div class="review__item">
+                    <h3 class="h3">Ансар</h3>
+                    <p class="review__text">
+                      Спасибо Вы классные С таким подходом походу лидерами рынка
+                      станете
+                    </p>
+                  </div>
+                </li>
+                <li class="review__items">
+                  <img
+                    src="/public/icons/Group_user.svg"
+                    class="review__icon"
+                    alt="иконка отзывов"
+                  />
+                  <div class="review__item">
+                    <h3 class="h3">Асель</h3>
+                    <p class="review__text">
+                      Все отлично благодаря Вам! Все работает, продажи выросли
+                      на 10 раз, теперь и отчёт по остаткам можно поставить, это
+                      вообще супер 🙌 мозг у меня никогда не отдыхал потому что
+                      всегда считала количество на уме :) благодаря вам у меня
+                      вырос ассортимент товаров от 150 до 300 👏 Спасибо
+                      salescout.me
+                    </p>
+                  </div>
+                </li>
+                <li class="review__items">
+                  <img
+                    src="/public/icons/Group_user.svg"
+                    class="review__icon"
+                    alt="иконка отзывов"
+                  />
+                  <div class="review__item">
+                    <h3 class="h3">Актилек</h3>
+                    <p class="review__text">
+                      Все 🔥 Не успеваю с заказами, спасибо
+                    </p>
+                  </div>
+                </li>
+                <li class="review__items">
+                  <img
+                    src="/public/icons/Group_user.svg"
+                    class="review__icon"
+                    alt="иконка отзывов"
+                  />
+                  <div class="review__item">
+                    <h3 class="h3">Наиль</h3>
+                    <p class="review__text">
+                      Очень крутой сервис Молодцы ребята
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="page__faq faq">
+          <div class="faq__container container">
+            <div class="faq__body">
+              <h2 class="h2">Жиі қойылатын сұрақтар</h2>
+              <ul class="faq__menu">
+                <li class="faq__item">
+                  <div class="faq__item-title">
+                    <h3 class="h3">Қауіпсіз бе? Дүкен бұғатталады ма?</h3>
+                    <button
+                      class="faq__item-button"
+                      onclick="showAnswer(0)"
+                      aria-label="Faq button"
+                    >
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        id="faq__item-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="faq__item-icon"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M20 19V4H19V19H4V20H19V36H20V20H36V19H20Z"
+                          stroke-width="0"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div id="faq__item-body" class="faq__item-body">
+                    <p class="text">
+                      Жеңіл демалуға болады. Бот адамның әрекеттеріне еліктейді.
+                    </p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <div class="faq__item-title">
+                    <h3 class="h3">Менің ақпаратымды ешкім біліп алмайма?</h3>
+                    <button
+                      class="faq__item-button"
+                      onclick="showAnswer(1)"
+                      aria-label="Faq button"
+                    >
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        id="faq__item-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="faq__item-icon"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M20 19V4H19V19H4V20H19V36H20V20H36V19H20Z"
+                          stroke-width="0"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div id="faq__item-body" class="faq__item-body">
+                    <p class="text">
+                      Біз сіздің қауіпсіздік пен құпиялылыққа қатысты
+                      алаңдаушылықтарыңызды түсінеміз, сондықтан сіздің барлық
+                      деректеріңіз шифрланған және үшінші тараптарға берілмейді.
+                    </p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <div class="faq__item-title">
+                    <h3 class="h3">
+                      Егер менің бәсекелестерім де сіздің жүйеңізді пайдаланса
+                      ше?
+                    </h3>
+                    <button
+                      class="faq__item-button"
+                      onclick="showAnswer(2)"
+                      aria-label="Faq button"
+                    >
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        id="faq__item-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="faq__item-icon"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M20 19V4H19V19H4V20H19V36H20V20H36V19H20Z"
+                          stroke-width="0"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div id="faq__item-body" class="faq__item-body">
+                    <p class="text">
+                      Біздің жүйе икемді параметрлерді жасауға және кез келген
+                      бәсекелесті жеңуге мүмкіндік береді.
+                    </p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <div class="faq__item-title">
+                    <h3 class="h3">Қолдану нұсқаулары бар ма?</h3>
+                    <button
+                      class="faq__item-button"
+                      onclick="showAnswer(3)"
+                      aria-label="Faq button"
+                    >
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        id="faq__item-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="faq__item-icon"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M20 19V4H19V19H4V20H19V36H20V20H36V19H20Z"
+                          stroke-width="0"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div id="faq__item-body" class="faq__item-body">
+                    <p class="text">
+                      Иә. Сіздің сұрақтарыңызға толық жауаптарды «SaleScout
+                      Guide» бөлімінде табуға болады.
+                    </p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <div class="faq__item-title">
+                    <h3 class="h3">Бот бағаларды қаншалықты тез жаңартады?</h3>
+                    <button
+                      class="faq__item-button"
+                      onclick="showAnswer(4)"
+                      aria-label="Faq button"
+                    >
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        id="faq__item-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="faq__item-icon"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M20 19V4H19V19H4V20H19V36H20V20H36V19H20Z"
+                          stroke-width="0"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div id="faq__item-body" class="faq__item-body">
+                    <p class="text">
+                      Бот әрбір 3-5 минут сайын сіздің барлық позицияларыңызды
+                      тексереді және өзгерістерді қабылдау үшін Kaspi-ге бірден
+                      сұрау жібереді.
+                    </p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <div class="faq__item-title">
+                    <h3 class="h3">Жүйеге қанша өнім қосуға болады?</h3>
+                    <button
+                      class="faq__item-button"
+                      onclick="showAnswer(5)"
+                      aria-label="Faq button"
+                    >
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        id="faq__item-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="faq__item-icon"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M20 19V4H19V19H4V20H19V36H20V20H36V19H20Z"
+                          stroke-width="0"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div id="faq__item-body" class="faq__item-body">
+                    <p class="text">Таңдалған тарифке байланысты.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__container container">
+          <div class="footer__body">
+            <a href="/kz/" class="footer__logo"> © SaleScout 2023 </a>
+            <ul class="footer__menu">
+              <li class="footer__item">
+                <a href="/kz/legal" class="footer__link">
+                  Пайдаланушы келісімі
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./script.js"></script>
+    <script src="../../draw-metrics.js"></script>
+    <script>
+      var button = document.getElementById("language__button");
+      button.addEventListener("click", function () {
+        localStorage.setItem("LOCAL_LANGUAGE", "ru");
+        window.location.href = "/ru/kaspi-bot-optimiziruyte-svoy-biznes";
+      });
+    </script>
+    <script>
+      function saveUtmData(data) {
+        localStorage.setItem("utm_source", data.utm_source);
+        localStorage.setItem("utm_campaign", data.utm_campaign);
+        localStorage.setItem("utm_medium", data.utm_medium);
+        localStorage.setItem("utm_content", data.utm_content);
+      }
+
+      function generateUtmToken(length) {
+        var stringArray = [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l",
+          "m",
+          "n",
+          "o",
+          "p",
+          "q",
+          "r",
+          "s",
+          "t",
+          "u",
+          "v",
+          "w",
+          "x",
+          "y",
+          "z",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z",
+        ];
+
+        var randomToken = "";
+
+        for (var i = 1; i < length; i++) {
+          var randomIndex = Math.ceil(Math.random() * stringArray.length) - 1;
+          randomToken = randomToken + stringArray[randomIndex];
+        }
+
+        return randomToken;
+      }
+
+      function saveUtmToken() {
+        const utmTokenFromLocalStorage = getUtmTokenFromLocalStorage();
+        if (utmTokenFromLocalStorage.trim() !== "") {
+          return false;
+        }
+
+        const newToken = generateUtmToken(50);
+
+        localStorage.setItem("utm_token", newToken);
+      }
+
+      function getUtmTokenFromLocalStorage() {
+        const token = localStorage.getItem("utm_token");
+        if (token) {
+          return token;
+        }
+
+        return "";
+      }
+
+      function getUtmDataFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        return {
+          utm_source: urlParams.get("utm_source") || "",
+          utm_campaign: urlParams.get("utm_campaign") || "",
+          utm_medium: urlParams.get("utm_medium") || "",
+          utm_content: urlParams.get("utm_content") || "",
+        };
+      }
+
+      function getUtmData() {
+        const utm_source = localStorage.getItem("utm_source") || "";
+        const utm_campaign = localStorage.getItem("utm_campaign") || "";
+        const utm_medium = localStorage.getItem("utm_medium" || "") || "";
+        const utm_content = localStorage.getItem("utm_content") || "";
+
+        return {
+          utm_source,
+          utm_campaign,
+          utm_medium,
+          utm_content,
+        };
+      }
+
+      function getUtmToken() {
+        return localStorage.getItem("utm_token");
+      }
+
+      function saveAction(action) {
+        const url = `https://api.salescout.me/api/utm`;
+
+        const utmData = getUtmData();
+
+        fetch(url, {
+          method: "POST",
+          body: JSON.stringify({
+            utm_token: getUtmToken(),
+            action: "OPEN_LANDING",
+            ...utmData,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+      }
+
+      function encodeQueryData(data) {
+        const ret = [];
+        for (let d in data)
+          ret.push(encodeURIComponent(d) + "=" + encodeURIComponent(data[d]));
+        return ret.join("&");
+      }
+
+      function getSystemUrlWithUtm() {
+        let serviceUrl = `https://app.salescout.me`;
+
+        const utmData = getUtmData();
+        const utmToken = getUtmToken();
+
+        const data = {
+          ...utmData,
+          utm_token: utmToken,
+        };
+
+        const queryParams = encodeQueryData(data);
+
+        return `${serviceUrl}?${queryParams}`;
+      }
+
+      const utmData = getUtmDataFromUrl();
+      saveUtmData(utmData);
+      saveUtmToken();
+
+      const url = getSystemUrlWithUtm();
+
+      var aLinks = document.querySelectorAll("a");
+      var arrayLinks = Array.from(aLinks);
+      arrayLinks.forEach(function (el) {
+        var href = el.getAttribute("href");
+        if (
+          href &&
+          href.indexOf("app.salescout.me") > -1 &&
+          href.indexOf("#") === -1
+        ) {
+          if (href.indexOf("?") === -1) {
+            el.setAttribute("href", url);
+          } else {
+            el.setAttribute("href", url);
+          }
+        }
+      });
+
+      saveAction();
+    </script>
+  </body>
+</html>
